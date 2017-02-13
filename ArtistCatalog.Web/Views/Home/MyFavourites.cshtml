@@ -1,0 +1,26 @@
+﻿@using ArtistCatalog.DAL.Entities
+@model IEnumerable<UserFavourite>
+
+@{
+    ViewBag.Title = "MyFavourites";
+}
+
+<h2>My Favourites</h2>
+
+<div id="releaseListContainer">
+    <div id="releaseListGroup" class="list-group">
+
+        @foreach (var item in Model)
+        {
+            <div class="row list-group-item">
+                <div class="col-sm-12">
+                    <h4 class="list-group-item-heading">@item.Title (@item.ReleaseYear)</h4>
+                <p class="list-group-item-text">Label : @item.Label</p>
+                <p>No Of tracks : @item.NoOfTracks</p>
+                <a href="@Url.Action("Delete", "Home", new { releaseId = item.ReleaseId })" class="glyphicon glyphicon-remove active"></a>
+            </div>
+        </div>
+        }
+    </div>
+</div>
+

@@ -1,0 +1,87 @@
+﻿body {
+    padding-top: 70px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+h2{
+    font-family: 'Lobster Two', cursive;
+    font-size:xx-large;
+}
+
+.btn-back{
+    margin-bottom:10px;
+}
+
+
+
+/* Custom Styles */
+@media(max-width:767px){
+    #artistSearchBar{
+    }
+
+    #artistSearchBar div[class^="col"]:first-child, #paginationPanel div[class^="col"]:first-child{
+        margin-bottom:15px !important;
+    }
+}
+@media(min-width:768px){
+    #artistSearchBar{
+    }
+}
+@media(min-width:992px){
+    #artistSearchBar{
+    }
+}
+@media(min-width:1200px){
+    #artistSearchBar{
+    }
+}
+
+#artistSearchBar{
+    margin-bottom:10px;
+}
+
+#artistSearchBar .form-group {
+    margin-bottom:0;
+}
+
+#artistListContainer h4, #releaseListContainer h4{
+    font-family: 'Lobster Two', cursive;
+    font-size:x-large;
+    color:#debb27;
+}
+
+#artistListGroup > .row, #releaseListGroup > .row {
+    margin-left: 0;
+    margin-right:0;
+    min-height:90px;
+}
+
+#releaseListGroup .glyphicon{
+    position:absolute;
+    right:10px;
+    font-size:large;
+    color:gainsboro;
+    text-decoration:none;
+}
+
+#releaseListGroup .glyphicon:hover{
+    color:moccasin;
+}
+
+#releaseListGroup .glyphicon.active{
+    color:orangered;
+}

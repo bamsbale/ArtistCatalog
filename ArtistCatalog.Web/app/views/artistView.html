@@ -1,0 +1,48 @@
+﻿<div data-ng-init="init()">
+    <form id="artistSearchBar" class="well" novalidate data-ng-submit="search()">
+        <div class="form-horizontal">
+            <div class="form-group">
+                <div class="col-sm-10">
+                    <input id="searchText" type="text" class="form-control input-lg" placeholder="Artist Name or Alias" data-ng-model="search_criteria">
+                </div>
+                <div class="col-sm-2">
+                    <button id="btnSearch" type="submit" class="btn btn-lg btn-block btn-primary">Search</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div data-ng-show="isBusy" class="progress">
+        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width:100%"></div>
+    </div>
+
+    <div id="artistListContainer" class="ng-cloak" data-ng-show="artists.numberOfSearchResults > 0">
+        <div id="artistListGroup" class="list-group">
+            <div class="row list-group-item" data-ng-repeat="i in artists.results">
+                <div class="col-sm-8">
+                    <h4 class="list-group-item-heading">{{ i.name }}</h4>
+                    <p class="list-group-item-text">Aliases : {{ i.alias.toString() }}</p>
+                    <small>Country : {{ i.country }}</small>
+                </div>
+                <div class="col-sm-4">
+                    <a data-ng-href="#!/artist/{{ i.uid }}/releases" class="btn btn-info pull-right">Show releases</a>
+                </div>
+            </div>
+        </div>
+
+        <p class="text-right">Page  <strong>{{ artists.page + 1 }}</strong> of <strong>{{ artists.numberOfPages }}</strong> pages</p>
+    </div>
+
+    <div data-ng-show="!isResultFound" class="alert alert-warning" role="alert" ng-cloak>
+        <strong>Warning!</strong> No result(s) found.
+    </div>
+
+    <div id="paginationPanel" data-ng-show="artists.numberOfPages > 1" class="row ng-cloak">
+        <div class="col-sm-6">
+            <button type="button" class="btn btn-block btn-default" ng-click="previous()" data-ng-disabled="artists.page <= 0">Previous</button>
+        </div>
+        <div class="col-sm-6">
+            <button type="button" class="btn btn-block btn-default" ng-click="next()" data-ng-disabled="(artists.numberOfPages - 1)  <= artists.page">Next</button>
+        </div>
+    </div>
+</div>
