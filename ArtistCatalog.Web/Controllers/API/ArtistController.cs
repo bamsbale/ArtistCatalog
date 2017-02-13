@@ -21,7 +21,7 @@ namespace ArtistCatalog.Web.Controllers
             this._httpClient = httpClient;
         }
 
-        const int PAGE_SIZE = 4;
+        const int PAGE_SIZE = 10;
         const int DEFAULT_PAGE_NUMBER = 0;
 
 
